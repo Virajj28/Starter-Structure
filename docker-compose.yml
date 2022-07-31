@@ -1,0 +1,12 @@
+# Docker-compose file to run db locally
+version: "any"
+services: 
+  ssql:
+    image: --
+    ports: 
+      - "--"
+    # volumes: -this hash sign is needed over here not behaving as comment-
+    # --Volume name--:--Mount path--
+    environment:
+      ---
+      ---
