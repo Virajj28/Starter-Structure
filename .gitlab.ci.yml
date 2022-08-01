@@ -1,0 +1,25 @@
+image: node:16
+
+stages: 
+  - lint
+  - publish
+
+eslint:
+  stage: lint
+  script:
+    # Install ESLint in this docker container
+    - npm install
+    # Configure ESLint (will read your .eslintrc file)
+    - npm run lint
+
+publish-job:
+  stage: publish
+  image: 
+    name: ----kaniko-----
+    entrypoint: [""]
+  script:
+    #creating env file
+    -cat ${env_vars} > .env
+    # Also other ovrr here for kaniko executor 
+  only: 
+    - main
