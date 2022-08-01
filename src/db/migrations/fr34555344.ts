@@ -1,0 +1,1 @@
+// Some weird no. ts file will be generated over here. after we generate migration and after run migration this file will inherit changes in db

@@ -1,0 +1,1 @@
+// Some entity which has Entity, Column, PrimaryColumm used from typeorm and mentioned fields should have type
