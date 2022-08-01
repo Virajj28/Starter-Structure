@@ -1,3 +1,18 @@
-# Write scripts for eslint and publish job to github in this file
- Confused about contents of this reqd. file but remember add-ups but syntax couldn't recall.
+FROM node:16-alpine
 
+#Create app directory
+WORKDIR usr/src/app
+
+#Install app dependencies
+COPY package*.json ./
+
+RUN npm install
+
+#Bundle app source
+COPY..
+
+RUN npm run build
+
+EXPOSE 3000
+
+CMD [ "node", "dist/index.js" ]
