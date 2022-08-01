@@ -7,7 +7,10 @@
     "start": "npm run build && node dist/index.js",
     "build": "rimraf dist && tsc",
     "lint": "eslint . --ext .ts",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "lint-fix": "eslint . --ext .ts --fix",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "generate-migration": "npm run build && npx typeorm-ts-node-esm migration-generate ./src/db/migrations/any-table-name -d ./src/db/datasource.ts",
+    "run-migration": "npm run build && npx typeorm-ts-node-esm migration-run migrations: run -d ./src/db/datasource.ts"
   },
   "repository": {
     "type": "git",
