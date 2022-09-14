@@ -4,6 +4,8 @@ import http from 'http';
 import cors from 'cors';
 // import { setUpRoutes } from "../routes";
 import LiveCheckRoute from "../routes/livecheck";
+import schedule from "node-schedule"
+import cron from 'cron';
 
 const PORT = parseInt(process.env.PORT || '3000', 10);
 
@@ -24,6 +26,26 @@ const startServer = () => {
         origin: "*",
         credentials: true,
     }))
+
+    // Use node schedule package for ist time
+    // const schedule = require('node-schedule');
+
+    // const rule = new schedule.RecurrenceRule();
+    // rule.minute = 0;
+    // rule.second = 3;
+
+    // const job = schedule.scheduleJob(rule, function(){
+    // console.log('The answer to life, the universe, and everything!');
+    // });
+
+    // job.cancel();
+
+    cron.schedule('0 1 * * *', () => {
+        console.log('Running a job at 01:00 at America/Sao_Paulo timezone');
+      }, {
+        scheduled: true,
+        timezone: "America/Sao_Paulo"
+      });
 
     // setUpRoutes(app);
 
